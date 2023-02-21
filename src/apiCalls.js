@@ -10,14 +10,14 @@ const getData = () => {
     })
 }
 
-const addNewData = (name, date, time, number) => {
+const addNewData = (newRes) => {
     return fetch (`${url}`,
     {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ id: Date.now(), name: name, date: date, time: time, number: number })
+        body: JSON.stringify({ id: Date.now(), name: newRes.name, date: newRes.date, time: newRes.time, number: newRes.number })
     })
     .then(res => {
         if(!res.ok) {
