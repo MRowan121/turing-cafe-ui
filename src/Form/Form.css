@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.form * {
+    width: 15vw;
+    font-size: 65%;
+}
