@@ -16,6 +16,25 @@ class Form extends Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
+    handleClick = e => {
+        e.preventDefault()
+        const newRes = {
+            id: Date.now(),
+            ...this.state
+        }
+        this.props.addRes(newRes)
+        this.clearInputs()
+    }
+
+    clearInputs = () => {
+        this.setState({ 
+            name: '',
+            date: '',
+            time: '',
+            guests: '',
+        })
+    }
+
     render() {
         return (
             <form className="form">
@@ -51,7 +70,7 @@ class Form extends Component {
                     onChange={e => this.handleChange(e)}
                     required
                     />
-                <button>Make Reservation</button>
+                <button onClick={e => this.handleClick(e)}>Make Reservation</button>
             </form>
         )
     }
